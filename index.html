@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <br />
+        <h2>Waleed Shoaib</h2>
+        <p><i class="fas fa-envelope"></i> waleedshoaib20@gmail.com</p>
+        <p><i class="fas fa-phone"></i> 03002921792</p>
+      </div>
+      <div class="navbar-right">
+        <a href="#">About Me</a>
+        <a href="#">Skills</a>
+        <a href="#">Projects</a>
+        <a href="#">Recommendations</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-image">
+        <img src="pic1.png" alt="Waleed's Image" />
+      </div>
+      <div class="section-description">
+        <h3>Hi, I'm Waleed <span>&#x1F590;</span></h3>
+        <p>I'm a software developer.</p>
+        <p>I specialize in creating innovative solutions.</p>
+        <p>I'm passionate about building robust applications.</p>
+        <p>My goal is to make a positive impact through technology.</p>
+        <p>Feel free to explore my portfolio and get in touch!</p>
+      </div>
+    </div>
+
+    <h2 style="margin-left: 30px">Skills</h2>
+    <div class="skills">
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png"
+          alt="HTML Logo"
+        />
+        <h4>HTML</h4>
+        <p>3 years</p>
+      </div>
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Javascript_badge.svg/1200px-Javascript_badge.svg.png"
+          alt="JavaScript Logo"
+        />
+        <h4>JavaScript</h4>
+        <p>5 years</p>
+      </div>
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png"
+          alt="Java Logo"
+        />
+        <h4>Java</h4>
+        <p>4 years</p>
+      </div>
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+          alt="React Logo"
+        />
+        <h4>React</h4>
+        <p>2 years</p>
+      </div>
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg"
+          alt="Node.js Logo"
+        />
+        <h4>Node.js</h4>
+        <p>3 years</p>
+      </div>
+      <div class="skill-box">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+          alt="CSS Logo"
+        />
+        <h4>CSS</h4>
+        <p>4 years</p>
+      </div>
+    </div>
+
+    <h2 style="margin-left: 30px">Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <p class="project-name">Chatbot</p>
+        <p class="project-description">
+          A conversational chatbot built using natural language processing.
+        </p>
+        <div class="project-line"></div>
+      </div>
+      <div class="project">
+        <p class="project-name">AI Robot</p>
+        <p class="project-description">
+          An intelligent robot capable of performing various tasks autonomously.
+        </p>
+        <div class="project-line"></div>
+      </div>
+      <div class="project">
+        <p class="project-name">Art Gallery</p>
+        <p class="project-description">
+          An online platform showcasing a collection of digital artworks.
+        </p>
+        <div class="project-line"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-left: 30px">Recommendation</h2>
+    <div class="recommendation">
+      <div class="recommendation-box">
+        <p>John Doe</p>
+        <p>
+          "Waleed is a highly skilled software developer. He consistently
+          delivers high-quality code and is always willing to go the extra mile.
+          I highly recommend working with him."
+        </p>
+      </div>
+      <div class="recommendation-box">
+        <p>Jane Smith</p>
+        <p>
+          "I had the pleasure of collaborating with Waleed on a complex web
+          application. His expertise in front-end development and
+          problem-solving skills were invaluable. He is a great team player and
+          an asset to any project."
+        </p>
+      </div>
+    </div>
+
+    <div class="recommendation-form">
+      <form onsubmit="event.preventDefault(); addRecommendation();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="message">Recommendation:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br />
+        <button class="recommendation-submit" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function addRecommendation() {
+        var name = document.getElementById("name").value;
+        var message = document.getElementById("message").value;
+
+        var recommendationBox = document.createElement("div");
+        recommendationBox.classList.add("recommendation-box");
+
+        var nameElement = document.createElement("p");
+        nameElement.textContent = name;
+
+        var messageElement = document.createElement("p");
+        messageElement.textContent = '"' + message + '"';
+
+        recommendationBox.appendChild(nameElement);
+        recommendationBox.appendChild(messageElement);
+
+        var recommendationSection = document.querySelector(".recommendation");
+        recommendationSection.appendChild(recommendationBox);
+
+        document.getElementById("name").value = "";
+        document.getElementById("message").value = "";
+
+        alert("Recommendation added!");
+      }
+    </script>
+
+    <a href="#" class="home-icon">&#8962;</a>
+  </body>
+</html>
